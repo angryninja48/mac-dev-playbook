@@ -1,0 +1,34 @@
+---
+- name: Remove all crap from Dock
+  shell: dockutil --remove all
+#  ignore_errors: true
+#  with_items: "{{ dockitems_to_remove  }}"
+
+- name: Check if items in dock exist
+  shell: dockutil --find '{{ item.name }}' || dockutil --add '{{ item.path }}'
+  with_items: "{{ dockitems_to_persist }}"
+
+- name: Fix order
+  shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}
+  with_items: "{{ dockitems_to_persist }}"
+
+- name: Set the Dock to the left side
+  shell: defaults write com.apple.dock {{ item }}
+  notify: restart_dock
+  tags: dock
+  with_items:
+    # Dock location (Left, Bottom or Right)
+    - "'orientation' -string 'left'"
+    # Magnification Size
+    - "largesize -int 65"
+    # Enable Magnification
+    - "magnification -bool true"
+    # Icon Size
+    - "tilesize -int 46"
+    # Lock Size
+    - "size-immutable -bool true"
+
+
+- name: Install Atom packages
+  apm:  name={{ item }} state=present
+  with_items: "{{ apm_packages }}"
