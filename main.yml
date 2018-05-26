@@ -8,4 +8,4 @@
 
   roles:
     - geerlingguy.homebrew
-    - extra
+    - custom
