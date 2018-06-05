@@ -14,16 +14,17 @@ homebrew_installed_packages:
 
 
 homebrew_taps:
-  - caskroom/cask
-  - caskroom/versions
+  - homebrew/cask
+  - homebrew/cask-versions
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-#  - google-chrome
+  - google-chrome
   - firefox
   - vagrant
-#  - virtualbox
-#  - virtualbox-extension-pack
+  - atom
+  - virtualbox
+  - virtualbox-extension-pack
   - citrix-receiver
   - slack
   - istat-menus
@@ -95,10 +96,4 @@ apm_packages:
   - multi-cursor
   - split-diff
   - duplicate-removal
-
-#  - grunt
-#  - bower
-#  - sass
-#  - webpack
-#  - yo
-#  - generator-webapp
+  - remote-ftp
