@@ -1,16 +1,37 @@
 ---
 homebrew_install_path: /usr/local/homebrew
 homebrew_installed_packages:
-  - ansible
-  - git
-  - ssh-copy-id
-  - wget
-  - iperf
-  - dockutil
-  - npm
-  - telnet
+  - aws-iam-authenticator
+  - azure-cli
   - docker
   - docker-compose
+  - dockutil
+#  - eksctl
+  - fping
+  - gcc
+  - gdbm
+  - gettext
+  - git
+  - gmp
+  - go
+  - iperf
+  - jq
+  - kops
+  - mpfr
+  - mtr
+  - openconnect
+  - sqlite
+  - ssh-copy-id
+#  - sshpass
+  - tcping
+  - telnet
+  - tfenv
+  - tree
+  - vagrant-completion
+  - wget
+  - zsh
+
+
 
 
 homebrew_taps:
@@ -19,28 +40,34 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - google-chrome
-  - firefox
-  - vagrant
-  - atom
-  - virtualbox
-  - virtualbox-extension-pack
-  - citrix-receiver
-  - slack
-  - istat-menus
   - android-file-transfer
-  - spotify
-  - iterm2
+  - atom
+  - chromedriver
+  - docker
+  - firefox
+  - gimp
   - google-backup-and-sync
-  - postman
+#  - google-chrome
+#  - inkscape
+  - istat-menus
+  - iterm2
   - keka
+  - postman
   - private-internet-access
-  - vlc
-  - vmware-fusion
-  - unetbootin
-  - wireshark
-  - franz
   - remote-desktop-manager
+  - slack
+  - spotify
+  - tunnelblick
+  - unetbootin
+  - vagrant
+  - vagrant-manager
+#  - virtualbox
+#  - virtualbox-extension-pack
+  - visual-studio-code
+  - vlc
+  - vmware-fusion10
+  - wireshark
+  - xquartz
 
 
 dockitems_to_remove:
@@ -97,3 +124,6 @@ apm_packages:
   - split-diff
   - duplicate-removal
   - remote-ftp
+
+iterm2_fonts:
+  - https://github.com/powerline/fonts/blob/master/RobotoMono/Roboto%20Mono%20for%20Powerline.ttf?raw=true
