@@ -126,4 +126,4 @@ apm_packages:
   - remote-ftp
 
 iterm2_fonts:
-  - https://github.com/powerline/fonts/blob/master/RobotoMono/Roboto%20Mono%20for%20Powerline.ttf?raw=true
+  - "https://github.com/powerline/fonts/blob/master/RobotoMono/Roboto%20Mono%20for%20Powerline.ttf?raw=true"

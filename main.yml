@@ -7,5 +7,6 @@
     - vars/main.yml
 
   roles:
-    - geerlingguy.homebrew
-    - custom
+#    - geerlingguy.homebrew
+#    - custom
+    - terminal

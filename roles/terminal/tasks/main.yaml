@@ -7,35 +7,36 @@
       - Clear homebrew cache
 
   - name: Ensure iTerm is installed
-    homebrew:
+    homebrew_cask:
       name: "iterm2"
       state: present
     notify:
       - Clear homebrew cache
 
-- name: Instal oh-my-zsh
-  git:
-    repo: "https://github.com/robbyrussell/oh-my-zsh.git"
-    dest: "{{ ansible_env.HOME + '/.oh-my-zsh' }}"
-    update: yes
+  - name: Instal oh-my-zsh
+    git:
+      repo: "https://github.com/robbyrussell/oh-my-zsh.git"
+      dest: "{{ ansible_env.HOME + '/.oh-my-zsh' }}"
+      update: yes
 
-- name: Configure oh-my-zsh
-  template:
-    src: "zshrc.j2"
-    dest: "{{ ansible_env.HOME + '/.zshrc' }}"
+  - name: Configure oh-my-zsh
+    template:
+      src: "zshrc.j2"
+      dest: "{{ ansible_env.HOME + '/.zshrc' }}"
 
-- name: Setting default shell
-  become: true
-  shell: "chsh -s $(which zsh) {{ ansible_user_id }}"
+  - name: Setting default shell
+    become: true
+    shell: "chsh -s /bin/zsh {{ ansible_user_id }}"
 
-- name: Ensure fonts are installed.
-  get_url:
-    url: "{{ item.url }}"
-    dest: "~/Library/Fonts"
-  with_items: "{{ iterm2_fonts }}"
-  when: iterm2_fonts is defined
+  - name: Ensure fonts are installed.
+    get_url:
+      url: "{{ item }}"
+      dest: "~/Library/Fonts"
+      validate_certs: False
+    with_items: "{{ iterm2_fonts }}"
+    when: iterm2_fonts is defined
 
-- name: Ensure shell integration is installed.
-  shell: curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
-  args:
-    warn: no
+  - name: Ensure shell integration is installed.
+    shell: curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
+    args:
+      warn: no
